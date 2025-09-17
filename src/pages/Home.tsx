@@ -4,6 +4,7 @@ import { Calendar, MapPin, Trophy, Users, Newspaper, Image, ArrowRight, Loader2,
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { HomepageBackground, GalleryItem, NewsItem } from '../types';
+import CoverflowCarousel from '../components/CoverflowCarousel';
 
 const Home: React.FC = () => {
   const [background, setBackground] = useState<HomepageBackground | null>(null);
@@ -24,7 +25,7 @@ const Home: React.FC = () => {
         .select('*')
         .eq('is_active', true)
         .single();
-      if (error) handleError(error, 'background');
+      if (error && error.code !== 'PGRST116') handleError(error, 'background'); // Ignore no rows found error
       else setBackground(data);
       setLoading(prev => ({ ...prev, bg: false }));
     };
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
         .from('gallery')
         .select('*')
         .order('created_at', { ascending: false })
-        .limit(6);
+        .limit(9);
       if (error) handleError(error, 'gallery');
       else setGallery(data || []);
       setLoading(prev => ({ ...prev, gallery: false }));
@@ -169,29 +170,28 @@ const Home: React.FC = () => {
       </section>
       
       {/* Gallery Preview */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-serif">Gallery</h2>
+      <section className="py-16 bg-gray-50 overflow-hidden">
+        <div className="max-w-full mx-auto px-0">
+          <div className="text-center mb-12 px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-serif">Gallery Highlights</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">A glimpse into the vibrant moments of Muhimmath.</p>
           </div>
-          {loading.gallery ? <div className="flex justify-center"><Loader2 className="w-8 h-8 animate-spin text-red-600" /></div> :
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {gallery.map((item, index) => (
-                <motion.div key={item.id} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-                  <Link to="/gallery" className="block relative rounded-lg overflow-hidden group">
-                    <img src={item.image_url} alt={item.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <h3 className="text-white font-semibold text-lg">{item.title}</h3>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+          {loading.gallery ? (
+            <div className="flex justify-center h-[350px] items-center">
+              <Loader2 className="w-8 h-8 animate-spin text-red-600" />
             </div>
-          }
+          ) : gallery.length > 0 ? (
+            <CoverflowCarousel items={gallery} />
+          ) : (
+            <div className="text-center text-gray-500 py-16">
+              <Image className="w-12 h-12 mx-auto text-gray-400 mb-4" />
+              <h3 className="text-xl font-semibold">The gallery is currently empty.</h3>
+              <p>Check back later for photos from our events.</p>
+            </div>
+          )}
           <div className="text-center mt-12">
             <Link to="/gallery" className="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors shadow-lg flex items-center gap-2 justify-center mx-auto w-fit">
-              View More Photos <ArrowRight size={20} />
+              View Full Gallery <ArrowRight size={20} />
             </Link>
           </div>
         </div>
@@ -209,7 +209,7 @@ const Home: React.FC = () => {
               {news.map((item, index) => (
                 <motion.div key={item.id} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.15 }}>
                   <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 h-full flex flex-col">
-                    <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/8B0000/FFFFFF?text=News'} alt={item.title} className="w-full h-40 object-cover" />
+                    <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/8B0000/FFFFFF?text=News'} alt={item.title} className="w-full h-40 object-cover" />
                     <div className="p-6 flex-grow flex flex-col">
                       <p className="text-sm text-red-600 font-semibold mb-2">{item.category}</p>
                       <h3 className="text-lg font-bold text-gray-900 mb-3 flex-grow">{item.title}</h3>

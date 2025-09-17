@@ -63,8 +63,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-red-800 mt-8 pt-8 text-center">
-          <p className="text-red-200"> Developed By <a href="https://ibrahimkhaleel.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-500 transition-colors">Ibrahim Khaleel Kattathar</a>.</p>
+        <div className="border-t border-red-800 mt-8 pt-8 text-center text-red-200">
+          <p>
+            Developed By <a href="https://ibrahimkhaleel.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-500 transition-colors">Ibrahim Khaleel Kattathar</a>.
+            <span className="mx-2">|</span>
+            <Link to="/admin/login" className="text-yellow-300 hover:text-yellow-500 transition-colors">Admin</Link>
+          </p>
         </div>
       </div>
     </footer>

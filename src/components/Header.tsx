@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex md:items-center md:space-x-4">
             <div className="ml-10 flex items-baseline space-x-4">
               {navigation.map((item) => (
                 <Link
@@ -50,21 +50,8 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Search and Join Us */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-white hover:text-yellow-300 transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <Link
-              to="/admin/login"
-              className="bg-yellow-500 text-red-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-400 transition-colors"
-            >
-              Admin
-            </Link>
-          </div>
-
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white hover:text-yellow-300 transition-colors"
@@ -92,13 +79,6 @@ const Header: React.FC = () => {
                   {item.name}
                 </Link>
               ))}
-              <Link
-                to="/admin/login"
-                className="block px-3 py-2 rounded-md text-base font-medium bg-yellow-500 text-red-900 mt-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Admin Panel
-              </Link>
             </div>
           </div>
         )}
