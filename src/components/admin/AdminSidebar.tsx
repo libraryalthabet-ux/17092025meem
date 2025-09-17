@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X, Home, Trophy, Newspaper, Image, Mail, Info, BarChart, Users, LayoutDashboard } from 'lucide-react';
+import { X, Home, Trophy, Newspaper, Image, Mail, Info, Users, LayoutDashboard } from 'lucide-react';
 
 interface AdminSidebarProps {
   isOpen: boolean;
@@ -11,7 +11,6 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Dashboard', href: '/admin/dashboard', icon: BarChart },
     { name: 'Homepage', href: '/admin/homepage', icon: LayoutDashboard },
     { name: 'Results', href: '/admin/results', icon: Trophy },
     { name: 'Teams', href: '/admin/teams', icon: Users },

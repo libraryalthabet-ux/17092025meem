@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AdminSidebar from '../../components/admin/AdminSidebar';
 import AdminHeader from '../../components/admin/AdminHeader';
-import AdminOverview from '../../components/admin/AdminOverview';
 import AdminResults from '../../components/admin/AdminResults';
 import AdminTeams from '../../components/admin/AdminTeams';
 import AdminNews from '../../components/admin/AdminNews';
@@ -29,7 +28,6 @@ const AdminDashboard: React.FC = () => {
         
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
           <Routes>
-            <Route path="/dashboard" element={<AdminOverview />} />
             <Route path="/homepage" element={<AdminHomepage />} />
             <Route path="/results" element={<AdminResults />} />
             <Route path="/teams" element={<AdminTeams />} />
@@ -37,7 +35,7 @@ const AdminDashboard: React.FC = () => {
             <Route path="/gallery" element={<AdminGallery />} />
             <Route path="/contact" element={<AdminContact />} />
             <Route path="/about" element={<AdminAbout />} />
-            <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="/" element={<Navigate to="/admin/homepage" replace />} />
           </Routes>
         </main>
       </div>

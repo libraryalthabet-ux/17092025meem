@@ -40,7 +40,11 @@ const Contact: React.FC = () => {
 
     if (error) {
       setSubmitStatus('error');
-      setSubmitMessage('Failed to send message. Please check your connection and try again.');
+      let userMessage = 'Failed to send message. Please check your connection and try again.';
+      if (error.message.includes('violates row-level security policy')) {
+        userMessage = 'Submission failed due to a server configuration issue. Please contact support.';
+      }
+      setSubmitMessage(userMessage);
       console.error('Error submitting contact form:', error);
     } else {
       setSubmitStatus('success');
