@@ -120,7 +120,7 @@ const AdminGallery: React.FC = () => {
         </div>
         <button
           onClick={() => { setEditingItem(null); setShowForm(true); setFormError(null); }}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add Photo
@@ -142,9 +142,9 @@ const AdminGallery: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (
-          <div className="col-span-full text-center py-8"><Loader2 className="w-6 h-6 text-red-600 animate-spin mx-auto" /></div>
+          <div className="col-span-full text-center py-8"><Loader2 className="w-6 h-6 text-indigo-600 animate-spin mx-auto" /></div>
         ) : error ? (
-          <div className="col-span-full text-center py-8 text-red-600">{error}</div>
+          <div className="col-span-full text-center py-8 text-rose-600">{error}</div>
         ) : (
           filteredGallery.map((item) => (
             <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -153,7 +153,7 @@ const AdminGallery: React.FC = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <div className="flex space-x-2">
                     <button onClick={() => handleEdit(item)} className="bg-blue-600 text-white p-2 rounded-full"><Edit className="w-4 h-4" /></button>
-                    <button onClick={() => handleDelete(item.id)} className="bg-red-600 text-white p-2 rounded-full"><Trash2 className="w-4 h-4" /></button>
+                    <button onClick={() => handleDelete(item.id)} className="bg-rose-600 text-white p-2 rounded-full"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@ const AdminGallery: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">{editingItem ? 'Edit Photo' : 'Add New Photo'}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               {formError && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <div className="bg-rose-100 border border-rose-400 text-rose-700 px-4 py-3 rounded relative" role="alert">
                   <span className="block sm:inline">{formError}</span>
                 </div>
               )}
@@ -208,7 +208,7 @@ const AdminGallery: React.FC = () => {
                 <textarea rows={3} value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required />
               </div>
               <div className="flex space-x-3 pt-4">
-                <button type="submit" disabled={isSubmitting} className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
+                <button type="submit" disabled={isSubmitting} className="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
                   {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (editingItem ? 'Update Photo' : 'Add Photo')}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg">Cancel</button>

@@ -77,7 +77,7 @@ const FanCarousel: React.FC<FanCarouselProps> = ({ items }) => {
         </button>
         <button
           onClick={goNext}
-          className="p-4 rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+          className="p-4 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition-colors disabled:opacity-50"
           disabled={items.length <= 1}
           aria-label="Next image"
         >

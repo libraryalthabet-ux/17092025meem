@@ -219,9 +219,9 @@ const AdminResults: React.FC = () => {
   };
 
   const winnerCards = [
-    { place: '1st Place', icon: Trophy, color: 'yellow', required: true },
-    { place: '2nd Place', icon: Medal, color: 'gray', required: false },
-    { place: '3rd Place', icon: Award, color: 'amber', required: false },
+    { place: '1st Place', icon: Trophy, color: 'brand-coral', required: true },
+    { place: '2nd Place', icon: Medal, color: 'brand-light-blue', required: false },
+    { place: '3rd Place', icon: Award, color: 'brand-dark-teal', required: false },
   ];
 
   return (
@@ -229,12 +229,12 @@ const AdminResults: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Manage Results</h2>
-          <p className="text-gray-600">Add, edit, and manage competition results</p>
+          <h2 className="text-2xl font-bold text-ui-text-primary">Manage Results</h2>
+          <p className="text-ui-text-secondary">Add, edit, and manage competition results</p>
         </div>
         <button
           onClick={() => { resetForm(); setShowForm(true); }}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+          className="bg-brand-mid-blue text-white px-4 py-2 rounded-lg hover:bg-brand-dark-blue transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add Winners
@@ -242,7 +242,7 @@ const AdminResults: React.FC = () => {
       </div>
 
       {/* Search and Actions */}
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-ui-surface rounded-lg shadow-md p-6">
         <div className="flex flex-col md:flex-row gap-4 justify-between">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -251,7 +251,7 @@ const AdminResults: React.FC = () => {
               placeholder="Search results by program or category..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-mid-blue focus:border-transparent"
             />
           </div>
           <button
@@ -267,15 +267,15 @@ const AdminResults: React.FC = () => {
       {/* Results View */}
       <div className="space-y-4">
         {loading ? (
-          <div className="flex justify-center items-center py-12"><Loader2 className="w-8 h-8 text-red-600 animate-spin" /></div>
+          <div className="flex justify-center items-center py-12"><Loader2 className="w-8 h-8 text-brand-mid-blue animate-spin" /></div>
         ) : error ? (
-          <div className="text-center py-12 text-red-600"><h3 className="text-xl font-semibold">Error loading results</h3><p>{error}</p></div>
+          <div className="text-center py-12 text-rose-600"><h3 className="text-xl font-semibold">Error loading results</h3><p>{error}</p></div>
         ) : filteredGroupedResults.length > 0 ? (
           filteredGroupedResults.map((group) => (
-            <div key={`${group.event}-${group.category}-${group.year}`} className="bg-white rounded-lg shadow-md p-6">
+            <div key={`${group.event}-${group.category}-${group.year}`} className="bg-ui-surface rounded-lg shadow-md p-6">
               <div className="flex items-center justify-between mb-4 border-b pb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800">{group.event}</h3>
+                  <h3 className="text-xl font-bold text-ui-text-primary">{group.event}</h3>
                   <p className="text-sm text-gray-500">{group.category} - {group.year}</p>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -288,7 +288,7 @@ const AdminResults: React.FC = () => {
                   </button>
                   <button
                     onClick={() => handleDeleteCompetition(group.event, group.category, group.year)}
-                    className="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors"
+                    className="text-rose-500 hover:text-rose-700 p-2 rounded-full hover:bg-rose-50 transition-colors"
                     title="Delete all results for this competition"
                   >
                     <Trash2 className="w-5 h-5" />
@@ -298,9 +298,9 @@ const AdminResults: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {group.winners.map((winner) => (
                   <div key={winner.id} className={`p-4 rounded-lg flex justify-between items-start ${
-                    winner.position === 1 ? 'bg-yellow-50 border border-yellow-200' :
-                    winner.position === 2 ? 'bg-gray-100 border border-gray-200' :
-                    'bg-orange-50 border border-orange-200'
+                    winner.position === 1 ? 'bg-brand-coral/10 border border-brand-coral/20' :
+                    winner.position === 2 ? 'bg-brand-light-blue/10 border border-brand-light-blue/20' :
+                    'bg-brand-dark-teal/10 border border-brand-dark-teal/20'
                   }`}>
                     <div>
                       <div className="font-bold text-lg">{winner.position === 1 ? '1st' : winner.position === 2 ? '2nd' : '3rd'} Place</div>
@@ -309,7 +309,7 @@ const AdminResults: React.FC = () => {
                     </div>
                     <button
                       onClick={() => handleDelete(winner.id)}
-                      className="text-gray-400 hover:text-red-600 transition-colors flex-shrink-0 ml-2"
+                      className="text-gray-400 hover:text-rose-600 transition-colors flex-shrink-0 ml-2"
                       title="Delete this winner"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -331,8 +331,8 @@ const AdminResults: React.FC = () => {
       {/* Add/Edit Winners Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-8 w-full max-w-4xl max-h-[95vh] overflow-y-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-ui-surface rounded-lg p-8 w-full max-w-4xl max-h-[95vh] overflow-y-auto">
+            <h3 className="text-2xl font-bold text-ui-text-primary mb-6">
               {editingCompetition ? 'Edit Winners' : 'Add Winners'}
             </h3>
             
@@ -341,13 +341,13 @@ const AdminResults: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Program <span className="text-red-500">*</span>
+                    Program <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={winnersData.program}
                     onChange={(e) => setWinnersData({...winnersData, program: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-mid-blue focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Enter program name"
                     required
                     disabled={!!editingCompetition}
@@ -355,12 +355,12 @@ const AdminResults: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Category <span className="text-red-500">*</span>
+                    Category <span className="text-rose-500">*</span>
                   </label>
                   <select
                     value={winnersData.category}
                     onChange={(e) => setWinnersData({...winnersData, category: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-mid-blue focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
                     required
                     disabled={!!editingCompetition}
                   >
@@ -379,22 +379,18 @@ const AdminResults: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {winnerCards.map((card, index) => (
                     <div key={card.place} className={`rounded-lg border-2 p-6
-                      ${card.color === 'yellow' ? 'bg-yellow-50 border-yellow-200' : ''}
-                      ${card.color === 'gray' ? 'bg-gray-100 border-gray-200' : ''}
-                      ${card.color === 'amber' ? 'bg-amber-50 border-amber-200' : ''}
+                      ${index === 0 ? 'bg-brand-coral/10 border-brand-coral/20' : ''}
+                      ${index === 1 ? 'bg-brand-light-blue/10 border-brand-light-blue/20' : ''}
+                      ${index === 2 ? 'bg-brand-dark-teal/10 border-brand-dark-teal/20' : ''}
                     `}>
                       <div className="flex items-center gap-3 mb-4">
-                        <card.icon className={`w-6 h-6 
-                          ${card.color === 'yellow' ? 'text-yellow-500' : ''}
-                          ${card.color === 'gray' ? 'text-gray-500' : ''}
-                          ${card.color === 'amber' ? 'text-amber-600' : ''}
-                        `} />
+                        <card.icon className={`w-6 h-6 text-${card.color}`} />
                         <h5 className="font-bold text-lg text-gray-800">{card.place}</h5>
                       </div>
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Participant Name {card.required && <span className="text-red-500">*</span>}
+                            Participant Name {card.required && <span className="text-rose-500">*</span>}
                           </label>
                           <input
                             type="text"
@@ -435,7 +431,7 @@ const AdminResults: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-red-800 text-white py-2 px-6 rounded-lg hover:bg-red-900 transition-colors disabled:opacity-50 flex items-center gap-2"
+                  className="bg-brand-mid-blue text-white py-2 px-6 rounded-lg hover:bg-brand-dark-blue transition-colors disabled:opacity-50 flex items-center gap-2"
                 >
                   {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (editingCompetition ? 'Update Winners' : 'Add Winners')}
                 </button>

@@ -17,38 +17,38 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ onMenuClick }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="bg-ui-surface shadow-sm border-b border-black/10">
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center">
           <button
             onClick={onMenuClick}
-            className="lg:hidden text-gray-500 hover:text-gray-700 mr-4"
+            className="lg:hidden text-ui-text-secondary hover:text-ui-text-primary mr-4"
           >
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="text-xl font-semibold text-gray-900 font-serif">
-            Muhimmath Admin Dashboard
+          <h1 className="text-xl font-semibold text-ui-text-primary font-serif">
+            Muhimmath Admin
           </h1>
         </div>
 
         <div className="flex items-center space-x-4">
-          <button className="text-gray-500 hover:text-gray-700 relative">
+          <button className="text-ui-text-secondary hover:text-ui-text-primary relative">
             <Bell className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
               3
             </span>
           </button>
 
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-              <User className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-brand-mid-blue rounded-full flex items-center justify-center">
+              <User className="w-5 h-5 text-ui-text-light" />
             </div>
-            <span className="text-sm text-gray-700 hidden sm:block">Admin</span>
+            <span className="text-sm text-ui-text-primary hidden sm:block">Admin</span>
           </div>
 
           <button
             onClick={handleLogout}
-            className="text-gray-500 hover:text-gray-700"
+            className="text-ui-text-secondary hover:text-ui-text-primary"
             title="Logout"
           >
             <LogOut className="w-6 h-6" />

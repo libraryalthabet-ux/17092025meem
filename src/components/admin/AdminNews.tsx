@@ -113,7 +113,7 @@ const AdminNews: React.FC = () => {
         </div>
         <button
           onClick={() => { setEditingNews(null); setShowForm(true); }}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add News
@@ -128,7 +128,7 @@ const AdminNews: React.FC = () => {
             placeholder="Search news..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
       </div>
@@ -148,18 +148,18 @@ const AdminNews: React.FC = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {loading ? (
-                <tr><td colSpan={6} className="text-center py-8"><Loader2 className="w-6 h-6 text-red-600 animate-spin mx-auto" /></td></tr>
+                <tr><td colSpan={6} className="text-center py-8"><Loader2 className="w-6 h-6 text-indigo-600 animate-spin mx-auto" /></td></tr>
               ) : error ? (
-                 <tr><td colSpan={6} className="text-center py-8 text-red-600">{error}</td></tr>
+                 <tr><td colSpan={6} className="text-center py-8 text-rose-600">{error}</td></tr>
               ) : (
                 filteredNews.map((item) => (
                   <tr key={item.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4">
                       <div className="flex items-center">
-                        <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/40x40/8B0000/FFFFFF?text=M'} alt={item.title} className="w-10 h-10 rounded object-cover mr-3" />
+                        <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/40x40/3730a3/FFFFFF?text=M'} alt={item.title} className="w-10 h-10 rounded object-cover mr-3" />
                         <div>
                           <div className="font-medium text-gray-900">{item.title}</div>
-                          {item.is_featured && <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800">Featured</span>}
+                          {item.is_featured && <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800">Featured</span>}
                         </div>
                       </div>
                     </td>
@@ -171,7 +171,7 @@ const AdminNews: React.FC = () => {
                       <div className="flex space-x-2">
                         <button className="text-green-600 hover:text-green-900"><Eye className="w-4 h-4" /></button>
                         <button onClick={() => handleEdit(item)} className="text-blue-600 hover:text-blue-900"><Edit className="w-4 h-4" /></button>
-                        <button onClick={() => handleDelete(item.id)} className="text-red-600 hover:text-red-900"><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(item.id)} className="text-rose-600 hover:text-rose-900"><Trash2 className="w-4 h-4" /></button>
                       </div>
                     </td>
                   </tr>
@@ -227,12 +227,12 @@ const AdminNews: React.FC = () => {
                   </select>
                 </div>
                 <div className="flex items-center pt-6">
-                  <input type="checkbox" id="featured" checked={formData.is_featured} onChange={(e) => setFormData({...formData, is_featured: e.target.checked})} className="h-4 w-4 text-red-600 rounded" />
+                  <input type="checkbox" id="featured" checked={formData.is_featured} onChange={(e) => setFormData({...formData, is_featured: e.target.checked})} className="h-4 w-4 text-indigo-600 rounded" />
                   <label htmlFor="featured" className="ml-2 block text-sm text-gray-700">Featured Article</label>
                 </div>
               </div>
               <div className="flex space-x-3 pt-4">
-                <button type="submit" className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg">{editingNews ? 'Update' : 'Add'} News</button>
+                <button type="submit" className="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg">{editingNews ? 'Update' : 'Add'} News</button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg">Cancel</button>
               </div>
             </form>

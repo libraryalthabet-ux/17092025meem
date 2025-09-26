@@ -1,56 +1,52 @@
-import React from "react";
+import React from 'react';
+import { Result } from '../../types';
 
-const winners = [
-  { position: 1, name: "Ijlal ek", place: "Kunnummal" },
-  { position: 2, name: "Riswinjas", place: "Kolappuram North" },
-  { position: 3, name: "Abdul Hadi k", place: "Mathad" },
-];
+interface PosterProps {
+  program: { event: string; category: string };
+  winners: Result[];
+}
 
-const Poster = () => (
-  <div className="bg-white font-sans w-full max-w-2xl mx-auto p-0 m-0 relative overflow-hidden shadow-sm">
-    {/* Top Header */}
-    <div className="flex items-center justify-between p-4">
-      <span className="text-gray-700 font-semibold">@sjmkolappuram</span>
-      <div className="text-right">
-        <span className="text-4xl font-black text-blue-900 block leading-none">47</span>
-        <span className="text-base font-semibold text-gray-700 leading-none">Qawali</span>
-        <span className="text-xs text-gray-500">General</span>
-      </div>
+const Poster3: React.FC<PosterProps> = ({ program, winners }) => {
+  const winner1 = winners.find(w => w.position === 1);
+  const winner2 = winners.find(w => w.position === 2);
+  const winner3 = winners.find(w => w.position === 3);
+
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-brand-dark-blue via-brand-mid-blue to-brand-dark-teal text-ui-text-light font-sans flex flex-col justify-between p-8 relative">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/az-subtle.png')] opacity-10"></div>
+      <header className="relative">
+        <h2 className="text-2xl font-bold uppercase tracking-widest">{program.event}</h2>
+        <p className="text-ui-text-light/70 font-medium">{program.category}</p>
+      </header>
+      
+      <main className="relative">
+        {winner1 && (
+          <div className="text-center">
+            <p className="text-brand-light-blue text-lg font-semibold">WINNER</p>
+            <h3 className="text-4xl font-black text-white my-1 truncate">{winner1.participant}</h3>
+            <p className="text-brand-light-blue text-lg font-semibold truncate">{winner1.school}</p>
+          </div>
+        )}
+      </main>
+      
+      <footer className="relative">
+        <div className="flex justify-between items-center text-center">
+          {winner2 && (
+            <div>
+              <p className="text-ui-text-light/80 font-semibold">2nd Place</p>
+              <h4 className="text-xl font-bold truncate">{winner2.participant}</h4>
+            </div>
+          )}
+          {winner3 && (
+            <div>
+              <p className="text-ui-text-light/80 font-semibold">3rd Place</p>
+              <h4 className="text-xl font-bold truncate">{winner3.participant}</h4>
+            </div>
+          )}
+        </div>
+      </footer>
     </div>
+  );
+};
 
-    {/* Middle Section */}
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 py-6">
-      {/* Winners List */}
-      <div className="flex-1">
-        <ol className="space-y-4">
-          {winners.map((w, idx) => (
-            <li key={idx} className="flex flex-col">
-              <span className="text-lg font-bold text-blue-900">{`${w.position}. ${w.name}`}</span>
-              <span className="text-sm text-gray-500">{w.place}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      {/* Illustration (replace with real image) */}
-      <div className="flex-1 flex justify-center">
-        <img
-          src="your-house-image.png"
-          alt="House Illustration"
-          className="h-52 object-contain"
-        />
-      </div>
-    </div>
-
-    {/* Bottom Section */}
-    <div className="flex flex-col items-center justify-center py-4 border-t bg-white">
-      <div className="text-sm font-bold">SJM കൊളപ്പുറം റെഞ്ച്</div>
-      <div className="text-red-800 font-extrabold text-2xl mt-1">മദ്ഹ്സാ കലോത്സവ്</div>
-      <div className="text-xs text-gray-600 mt-2">
-        2023 ഡിസംബർ 10 ഞായർ <br /> മദ്ഹ്സാ മഞ്ചേരി, അന്വാരുള്ള
-      </div>
-    </div>
-  </div>
-);
-
-export default Poster;
+export default Poster3;

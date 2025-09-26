@@ -88,7 +88,7 @@ const AdminTeams: React.FC = () => {
         </div>
         <button
           onClick={() => { setEditingTeam(null); setShowForm(true); }}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add Team
@@ -103,7 +103,7 @@ const AdminTeams: React.FC = () => {
             placeholder="Search teams..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
       </div>
@@ -121,19 +121,19 @@ const AdminTeams: React.FC = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {loading ? (
-                <tr><td colSpan={4} className="text-center py-8"><Loader2 className="w-6 h-6 text-red-600 animate-spin mx-auto" /></td></tr>
+                <tr><td colSpan={4} className="text-center py-8"><Loader2 className="w-6 h-6 text-indigo-600 animate-spin mx-auto" /></td></tr>
               ) : error ? (
-                 <tr><td colSpan={4} className="text-center py-8 text-red-600">{error}</td></tr>
+                 <tr><td colSpan={4} className="text-center py-8 text-rose-600">{error}</td></tr>
               ) : (
                 filteredTeams.map((team, index) => (
                   <tr key={team.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap"><span className="font-bold">{index + 1}</span></td>
                     <td className="px-6 py-4 whitespace-nowrap"><div className="font-medium text-gray-900">{team.name}</div></td>
-                    <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-sm font-semibold bg-yellow-100 text-yellow-800 rounded-full">{team.points}</span></td>
+                    <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-sm font-semibold bg-amber-100 text-amber-800 rounded-full">{team.points}</span></td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex space-x-2">
                         <button onClick={() => handleEdit(team)} className="text-blue-600 hover:text-blue-900"><Edit className="w-4 h-4" /></button>
-                        <button onClick={() => handleDelete(team.id)} className="text-red-600 hover:text-red-900"><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(team.id)} className="text-rose-600 hover:text-rose-900"><Trash2 className="w-4 h-4" /></button>
                       </div>
                     </td>
                   </tr>
@@ -158,7 +158,7 @@ const AdminTeams: React.FC = () => {
                 <input type="number" value={formData.points} onChange={(e) => setFormData({...formData, points: parseInt(e.target.value, 10) || 0})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required />
               </div>
               <div className="flex space-x-3 pt-4">
-                <button type="submit" disabled={isSubmitting} className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
+                <button type="submit" disabled={isSubmitting} className="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
                   {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (editingTeam ? 'Update Team' : 'Add Team')}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg">Cancel</button>

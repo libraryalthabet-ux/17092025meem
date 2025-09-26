@@ -117,7 +117,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ items }) => {
         </button>
         <button
           onClick={goNext}
-          className="p-4 rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+          className="p-4 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition-colors disabled:opacity-50"
           disabled={items.length <= 1}
         >
           <ArrowRight className="w-6 h-6" />
@@ -131,7 +131,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ items }) => {
             key={index}
             onClick={() => goToIndex(index)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              activeIndex === index ? 'bg-red-600 scale-125' : 'bg-gray-300 hover:bg-gray-400'
+              activeIndex === index ? 'bg-indigo-600 scale-125' : 'bg-gray-300 hover:bg-gray-400'
             }`}
             aria-label={`Go to image ${index + 1}`}
           />

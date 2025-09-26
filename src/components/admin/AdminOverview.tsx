@@ -9,7 +9,7 @@ const AdminOverview: React.FC = () => {
       change: '+12%',
       changeType: 'increase',
       icon: Trophy,
-      color: 'bg-yellow-500'
+      color: 'bg-teal-500'
     },
     {
       name: 'News Articles',
@@ -103,7 +103,7 @@ const AdminOverview: React.FC = () => {
               <div key={index} className="flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg">
                 <div className="flex-shrink-0">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    activity.type === 'result' ? 'bg-yellow-100 text-yellow-600' :
+                    activity.type === 'result' ? 'bg-teal-100 text-teal-600' :
                     activity.type === 'news' ? 'bg-blue-100 text-blue-600' :
                     activity.type === 'gallery' ? 'bg-green-100 text-green-600' :
                     'bg-purple-100 text-purple-600'
@@ -128,7 +128,7 @@ const AdminOverview: React.FC = () => {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 gap-3">
             <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-left">
-              <Trophy className="w-6 h-6 text-yellow-500 mb-2" />
+              <Trophy className="w-6 h-6 text-teal-500 mb-2" />
               <p className="text-sm font-medium text-gray-900">Add Result</p>
               <p className="text-xs text-gray-500">Add new competition result</p>
             </button>
@@ -166,7 +166,7 @@ const AdminOverview: React.FC = () => {
             <p className="text-xs text-gray-500">Connected</p>
           </div>
           <div className="text-center">
-            <div className="w-3 h-3 bg-yellow-500 rounded-full mx-auto mb-2"></div>
+            <div className="w-3 h-3 bg-amber-500 rounded-full mx-auto mb-2"></div>
             <p className="text-sm font-medium text-gray-900">Backup</p>
             <p className="text-xs text-gray-500">Scheduled</p>
           </div>

@@ -92,19 +92,19 @@ const AdminHomepage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Homepage Background</h2>
-          <p className="text-gray-600">Manage the hero section's background image or video.</p>
+          <h2 className="text-2xl font-bold text-ui-text-primary">Manage Homepage</h2>
+          <p className="text-ui-text-secondary">Manage the hero section's background image or video.</p>
         </div>
         <button
           onClick={() => setShowForm(true)}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+          className="bg-brand-mid-blue text-ui-text-light px-4 py-2 rounded-lg hover:bg-brand-dark-blue transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add Background
         </button>
       </div>
       
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4" role="alert">
+      <div className="bg-amber-50 border-l-4 border-amber-400 text-amber-800 p-4" role="alert">
         <div className="flex">
           <div className="py-1"><AlertTriangle className="w-5 h-5 mr-3" /></div>
           <div>
@@ -114,32 +114,32 @@ const AdminHomepage: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-ui-surface rounded-lg shadow-md overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-ui-background">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Preview</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">URL</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-ui-text-secondary uppercase">Preview</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-ui-text-secondary uppercase">Type</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-ui-text-secondary uppercase">URL</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-ui-text-secondary uppercase">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-ui-text-secondary uppercase">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-ui-surface divide-y divide-black/5">
               {loading ? (
-                <tr><td colSpan={5} className="text-center py-8"><Loader2 className="w-6 h-6 text-red-600 animate-spin mx-auto" /></td></tr>
+                <tr><td colSpan={5} className="text-center py-8"><Loader2 className="w-6 h-6 text-brand-mid-blue animate-spin mx-auto" /></td></tr>
               ) : error ? (
-                 <tr><td colSpan={5} className="text-center py-8 text-red-600">{error}</td></tr>
+                 <tr><td colSpan={5} className="text-center py-8 text-rose-600">{error}</td></tr>
               ) : (
                 backgrounds.map((bg) => (
-                  <tr key={bg.id} className="hover:bg-gray-50">
+                  <tr key={bg.id} className="hover:bg-ui-background">
                     <td className="px-6 py-4">
                       {bg.type === 'image' ? (
                         <img src={bg.url} alt="background preview" className="w-24 h-16 object-cover rounded-md" />
                       ) : (
-                        <div className="w-24 h-16 bg-gray-800 rounded-md flex items-center justify-center">
-                          <Video className="w-8 h-8 text-white" />
+                        <div className="w-24 h-16 bg-brand-dark-blue rounded-md flex items-center justify-center">
+                          <Video className="w-8 h-8 text-ui-text-light" />
                         </div>
                       )}
                     </td>
@@ -149,7 +149,7 @@ const AdminHomepage: React.FC = () => {
                     <td className="px-6 py-4">
                       <div className="flex space-x-2">
                         {!bg.is_active && <button onClick={() => handleSetActive(bg.id)} className="text-green-600 hover:text-green-900">Set Active</button>}
-                        <button onClick={() => handleDelete(bg.id)} className="text-red-600 hover:text-red-900"><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(bg.id)} className="text-rose-600 hover:text-rose-900"><Trash2 className="w-4 h-4" /></button>
                       </div>
                     </td>
                   </tr>
@@ -162,22 +162,22 @@ const AdminHomepage: React.FC = () => {
 
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Background</h3>
+          <div className="bg-ui-surface rounded-lg p-6 w-full max-w-md">
+            <h3 className="text-lg font-semibold text-ui-text-primary mb-4">Add New Background</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
-                <select value={formData.type} onChange={(e) => setFormData({...formData, type: e.target.value as 'image' | 'video'})} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                <label className="block text-sm font-medium text-ui-text-secondary mb-1">Type</label>
+                <select value={formData.type} onChange={(e) => setFormData({...formData, type: e.target.value as 'image' | 'video'})} className="w-full px-3 py-2 border border-black/10 rounded-lg bg-ui-background">
                   <option value="image">Image</option>
                   <option value="video">Video</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">URL</label>
-                <input type="url" value={formData.url} onChange={(e) => setFormData({...formData, url: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required placeholder="https://example.com/image.jpg" />
+                <label className="block text-sm font-medium text-ui-text-secondary mb-1">URL</label>
+                <input type="url" value={formData.url} onChange={(e) => setFormData({...formData, url: e.target.value})} className="w-full px-3 py-2 border border-black/10 rounded-lg bg-ui-background" required placeholder="https://example.com/image.jpg" />
               </div>
               <div className="flex space-x-3 pt-4">
-                <button type="submit" disabled={isSubmitting} className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
+                <button type="submit" disabled={isSubmitting} className="flex-1 bg-brand-mid-blue text-ui-text-light py-2 px-4 rounded-lg flex items-center justify-center disabled:opacity-50">
                   {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Add Background'}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg">Cancel</button>

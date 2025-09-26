@@ -27,7 +27,7 @@ const AdminLogin: React.FC = () => {
     if (loginError) {
       setError(loginError.message || 'Invalid login credentials.');
     } else {
-      navigate('/admin/dashboard');
+      navigate('/admin/homepage');
     }
     
     setIsLoading(false);
@@ -50,12 +50,12 @@ const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-700 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-brand-dark-blue to-brand-dark-teal flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-white rounded-lg shadow-2xl p-8 w-full max-w-md"
+        className="bg-ui-surface rounded-lg shadow-2xl p-8 w-full max-w-md"
       >
         <AnimatePresence mode="wait">
           {view === 'login' ? (
@@ -67,32 +67,32 @@ const AdminLogin: React.FC = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"><Lock className="w-8 h-8 text-white" /></div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-2 font-serif">Admin Login</h1>
-                <p className="text-gray-600">Access the Muhimmath admin panel</p>
+                <div className="w-16 h-16 bg-brand-mid-blue rounded-full flex items-center justify-center mx-auto mb-4"><Lock className="w-8 h-8 text-ui-text-light" /></div>
+                <h1 className="text-2xl font-bold text-ui-text-primary mb-2 font-serif">Admin Login</h1>
+                <p className="text-ui-text-secondary">Access the Muhimmath admin panel</p>
               </div>
 
               <form onSubmit={handleLoginSubmit} className="space-y-6">
-                {error && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">{error}</div>}
+                {error && <div className="bg-rose-100 border border-rose-200 text-rose-700 px-4 py-3 rounded-md text-sm">{error}</div>}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-ui-text-secondary mb-2">Email</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" placeholder="Enter your email" required />
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 w-5 h-5" />
+                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-black/10 rounded-lg bg-ui-background" placeholder="Enter your email" required />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                  <label htmlFor="password" className="block text-sm font-medium text-ui-text-secondary mb-2">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input type={showPassword ? 'text' : 'password'} id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg" placeholder="Enter your password" required />
-                    <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">{showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}</button>
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 w-5 h-5" />
+                    <input type={showPassword ? 'text' : 'password'} id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full pl-10 pr-12 py-3 border border-black/10 rounded-lg bg-ui-background" placeholder="Enter your password" required />
+                    <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 hover:text-ui-text-secondary">{showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}</button>
                   </div>
                 </div>
                 <div className="text-right">
-                  <button type="button" onClick={() => setView('reset')} className="text-sm text-red-600 hover:underline">Forgot Password?</button>
+                  <button type="button" onClick={() => setView('reset')} className="text-sm text-brand-mid-blue hover:underline">Forgot Password?</button>
                 </div>
-                <button type="submit" disabled={isLoading} className="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 font-semibold disabled:opacity-50">
+                <button type="submit" disabled={isLoading} className="w-full bg-brand-coral text-brand-dark-blue py-3 px-4 rounded-lg hover:bg-opacity-90 font-semibold disabled:opacity-50">
                   {isLoading ? 'Signing in...' : 'Sign In'}
                 </button>
               </form>
@@ -106,25 +106,25 @@ const AdminLogin: React.FC = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"><Mail className="w-8 h-8 text-white" /></div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-2 font-serif">Reset Password</h1>
-                <p className="text-gray-600">Enter your email to receive a reset link</p>
+                <div className="w-16 h-16 bg-brand-mid-blue rounded-full flex items-center justify-center mx-auto mb-4"><Mail className="w-8 h-8 text-ui-text-light" /></div>
+                <h1 className="text-2xl font-bold text-ui-text-primary mb-2 font-serif">Reset Password</h1>
+                <p className="text-ui-text-secondary">Enter your email to receive a reset link</p>
               </div>
 
               <form onSubmit={handleResetSubmit} className="space-y-6">
-                {error && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">{error}</div>}
-                {message && <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md text-sm">{message}</div>}
+                {error && <div className="bg-rose-100 border border-rose-200 text-rose-700 px-4 py-3 rounded-md text-sm">{error}</div>}
+                {message && <div className="bg-green-100 border border-green-200 text-green-700 px-4 py-3 rounded-md text-sm">{message}</div>}
                 <div>
-                  <label htmlFor="reset-email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label htmlFor="reset-email" className="block text-sm font-medium text-ui-text-secondary mb-2">Email</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input type="email" id="reset-email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" placeholder="Enter your email" required />
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 w-5 h-5" />
+                    <input type="email" id="reset-email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-black/10 rounded-lg bg-ui-background" placeholder="Enter your email" required />
                   </div>
                 </div>
-                <button type="submit" disabled={isLoading} className="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 font-semibold disabled:opacity-50">
+                <button type="submit" disabled={isLoading} className="w-full bg-brand-coral text-brand-dark-blue py-3 px-4 rounded-lg hover:bg-opacity-90 font-semibold disabled:opacity-50">
                   {isLoading ? 'Sending...' : 'Send Reset Link'}
                 </button>
-                <button type="button" onClick={() => setView('login')} className="w-full text-red-600 py-2 flex items-center justify-center gap-2">
+                <button type="button" onClick={() => setView('login')} className="w-full text-brand-mid-blue py-2 flex items-center justify-center gap-2">
                   <ArrowLeft className="w-4 h-4" /> Back to Login
                 </button>
               </form>
@@ -133,7 +133,7 @@ const AdminLogin: React.FC = () => {
         </AnimatePresence>
         
         <div className="mt-6 text-center">
-          <button onClick={() => navigate('/')} className="text-red-600 hover:text-red-700 text-sm font-medium">← Back to Website</button>
+          <button onClick={() => navigate('/')} className="text-brand-mid-blue hover:text-brand-dark-blue text-sm font-medium">← Back to Website</button>
         </div>
       </motion.div>
     </div>

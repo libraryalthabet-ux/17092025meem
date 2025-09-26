@@ -17,7 +17,7 @@ function App() {
   return (
     <AdminProvider>
       <Router>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-ui-background text-ui-text-primary">
           <Header />
           <main>
             <Routes>

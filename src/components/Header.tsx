@@ -18,16 +18,16 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 shadow-lg sticky top-0 z-50">
+    <header className="bg-brand-dark-blue shadow-lg sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center">
-                <span className="text-red-900 font-bold text-lg">M</span>
+              <div className="w-10 h-10 bg-brand-light-blue rounded-lg flex items-center justify-center">
+                <span className="text-brand-dark-blue font-bold text-lg">M</span>
               </div>
-              <span className="text-white font-bold text-xl hidden sm:block">Muhimmath</span>
+              <span className="text-ui-text-light font-bold text-xl hidden sm:block">SSF Muhimmath</span>
             </Link>
           </div>
 
@@ -40,8 +40,8 @@ const Header: React.FC = () => {
                   to={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'bg-yellow-500 text-red-900'
-                      : 'text-white hover:bg-red-700 hover:text-white'
+                      ? 'bg-brand-coral text-brand-dark-blue'
+                      : 'text-ui-text-light hover:bg-brand-mid-blue'
                   }`}
                 >
                   {item.name}
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-yellow-300 transition-colors"
+              className="text-ui-text-light hover:text-white transition-colors"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -64,15 +64,15 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-red-800">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-brand-dark-blue">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'bg-yellow-500 text-red-900'
-                      : 'text-white hover:bg-red-700'
+                      ? 'bg-brand-coral text-brand-dark-blue'
+                      : 'text-ui-text-light hover:bg-brand-mid-blue'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

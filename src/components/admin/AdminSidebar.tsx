@@ -34,20 +34,20 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-ui-surface shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+        <div className="flex items-center justify-between h-16 px-6 border-b border-black/10">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
+            <div className="w-8 h-8 bg-brand-dark-blue rounded-lg flex items-center justify-center">
+              <span className="text-ui-text-light font-bold text-sm">M</span>
             </div>
-            <span className="text-lg font-semibold text-gray-900 font-serif">Muhimmath Admin</span>
+            <span className="text-lg font-semibold text-ui-text-primary font-serif">Muhimmath Admin</span>
           </div>
           <button
             onClick={onClose}
-            className="lg:hidden text-gray-500 hover:text-gray-700"
+            className="lg:hidden text-ui-text-secondary hover:text-ui-text-primary"
           >
             <X className="w-6 h-6" />
           </button>
@@ -61,8 +61,8 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
                 to={item.href}
                 className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                   isActive(item.href)
-                    ? 'bg-red-100 text-red-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-brand-light-blue/20 text-brand-mid-blue'
+                    : 'text-ui-text-secondary hover:bg-black/5'
                 }`}
                 onClick={() => onClose()}
               >
@@ -76,7 +76,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
         <div className="absolute bottom-6 left-6 right-6">
           <Link
             to="/"
-            className="flex items-center space-x-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="flex items-center space-x-3 px-4 py-3 text-sm font-medium text-ui-text-secondary hover:bg-black/5 rounded-lg transition-colors"
           >
             <Home className="w-5 h-5" />
             <span>Back to Website</span>

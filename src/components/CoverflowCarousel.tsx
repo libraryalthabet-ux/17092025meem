@@ -68,17 +68,17 @@ const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({ items }) => {
         {/* Navigation Buttons */}
         <button
           onClick={goPrev}
-          className="absolute left-4 md:left-8 lg:left-24 top-1/2 -translate-y-1/2 z-30 bg-white/60 p-2 rounded-full shadow-lg hover:bg-white transition-all backdrop-blur-sm"
+          className="absolute left-4 md:left-8 lg:left-24 top-1/2 -translate-y-1/2 z-30 bg-brand-light-blue/60 p-2 rounded-full shadow-lg hover:bg-brand-light-blue transition-all backdrop-blur-sm"
           aria-label="Previous image"
         >
-          <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
+          <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 text-brand-dark-blue" />
         </button>
         <button
           onClick={goNext}
-          className="absolute right-4 md:right-8 lg:right-24 top-1/2 -translate-y-1/2 z-30 bg-white/60 p-2 rounded-full shadow-lg hover:bg-white transition-all backdrop-blur-sm"
+          className="absolute right-4 md:right-8 lg:right-24 top-1/2 -translate-y-1/2 z-30 bg-brand-light-blue/60 p-2 rounded-full shadow-lg hover:bg-brand-light-blue transition-all backdrop-blur-sm"
           aria-label="Next image"
         >
-          <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
+          <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-brand-dark-blue" />
         </button>
       </div>
     </div>

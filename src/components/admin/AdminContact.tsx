@@ -73,8 +73,8 @@ const AdminContact: React.FC = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'unread': return 'bg-red-100 text-red-800';
-      case 'read': return 'bg-yellow-100 text-yellow-800';
+      case 'unread': return 'bg-rose-100 text-rose-800';
+      case 'read': return 'bg-amber-100 text-amber-800';
       case 'replied': return 'bg-green-100 text-green-800';
       default: return 'bg-gray-100 text-gray-800';
     }
@@ -88,8 +88,8 @@ const AdminContact: React.FC = () => {
           <p className="text-gray-600">Manage and respond to contact form submissions</p>
         </div>
         <div className="flex items-center space-x-4 text-sm">
-          <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full">{messages.filter(m => m.status === 'unread').length} Unread</span>
-          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">{messages.filter(m => m.status === 'read').length} Read</span>
+          <span className="bg-rose-100 text-rose-800 px-2 py-1 rounded-full">{messages.filter(m => m.status === 'unread').length} Unread</span>
+          <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full">{messages.filter(m => m.status === 'read').length} Read</span>
           <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full">{messages.filter(m => m.status === 'replied').length} Replied</span>
         </div>
       </div>
@@ -116,9 +116,9 @@ const AdminContact: React.FC = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {loading ? (
-                <tr><td colSpan={6} className="text-center py-8"><Loader2 className="w-6 h-6 text-red-600 animate-spin mx-auto" /></td></tr>
+                <tr><td colSpan={6} className="text-center py-8"><Loader2 className="w-6 h-6 text-indigo-600 animate-spin mx-auto" /></td></tr>
               ) : error ? (
-                <tr><td colSpan={6} className="text-center py-8 text-red-600">{error}</td></tr>
+                <tr><td colSpan={6} className="text-center py-8 text-rose-600">{error}</td></tr>
               ) : (
                 filteredMessages.map((message) => (
                   <tr key={message.id} className={`hover:bg-gray-50 ${message.status === 'unread' ? 'bg-blue-50' : ''}`}>
@@ -136,7 +136,7 @@ const AdminContact: React.FC = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex space-x-2">
                         <button onClick={() => handleReply(message)} className="text-blue-600 hover:text-blue-900" title="Reply"><Reply className="w-4 h-4" /></button>
-                        <button onClick={() => handleDelete(message.id)} className="text-red-600 hover:text-red-900" title="Delete"><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(message.id)} className="text-rose-600 hover:text-rose-900" title="Delete"><Trash2 className="w-4 h-4" /></button>
                       </div>
                     </td>
                   </tr>
@@ -161,7 +161,7 @@ const AdminContact: React.FC = () => {
                 <textarea rows={6} value={replyText} onChange={(e) => setReplyText(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Type your reply here..." />
               </div>
               <div className="flex space-x-3">
-                <button onClick={sendReply} className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg" disabled={!replyText.trim()}>Send Reply</button>
+                <button onClick={sendReply} className="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg" disabled={!replyText.trim()}>Send Reply</button>
                 <button onClick={() => { setSelectedMessage(null); setReplyText(''); }} className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg">Cancel</button>
               </div>
             </div>

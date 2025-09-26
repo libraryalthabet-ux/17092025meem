@@ -67,7 +67,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -76,8 +76,8 @@ const Gallery: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 font-serif">Photo Gallery</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-ui-text-primary mb-4 font-serif">Photo Gallery</h1>
+          <p className="text-ui-text-secondary max-w-2xl mx-auto">
             Explore memories from past Muhimmath events through our curated photo collection
           </p>
         </motion.div>
@@ -87,25 +87,25 @@ const Gallery: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-white rounded-lg shadow-md p-6 mb-8"
+          className="bg-ui-surface rounded-lg shadow-md p-6 mb-8"
         >
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search photos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-black/10 rounded-lg focus:ring-2 focus:ring-brand-light-blue focus:border-transparent bg-ui-background text-ui-text-primary"
               />
             </div>
             <div className="relative">
-              <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ui-text-secondary/50 w-5 h-5" />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none"
+                className="w-full md:w-auto pl-10 pr-4 py-2 border border-black/10 rounded-lg focus:ring-2 focus:ring-brand-light-blue focus:border-transparent appearance-none bg-ui-background text-ui-text-primary"
               >
                 {categories.map(category => (
                   <option key={category} value={category}>
@@ -115,19 +115,19 @@ const Gallery: React.FC = () => {
               </select>
             </div>
           </div>
-          <div className="mt-4 text-sm text-gray-600">
+          <div className="mt-4 text-sm text-ui-text-secondary">
             Showing {filteredItems.length} photos
           </div>
         </motion.div>
 
         {loading ? (
           <div className="flex justify-center items-center py-12">
-            <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
-            <span className="ml-4 text-gray-600">Loading Gallery...</span>
+            <Loader2 className="w-8 h-8 text-brand-mid-blue animate-spin" />
+            <span className="ml-4 text-ui-text-secondary">Loading Gallery...</span>
           </div>
         ) : error ? (
           <div className="text-center py-12">
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg inline-block">
+            <div className="bg-rose-100 border border-rose-400 text-rose-700 px-4 py-3 rounded-lg inline-block">
               <h3 className="font-bold">Connection Error</h3>
               <p>{error}</p>
             </div>
@@ -147,12 +147,12 @@ const Gallery: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer"
+                  className="bg-ui-surface rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer"
                   onClick={() => openLightbox(item)}
                 >
                   <div className="relative overflow-hidden">
                     <img
-                      src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/8B0000/FFD700?text=Gallery'}
+                      src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/134D80/FFFFFF?text=Gallery'}
                       alt={item.title}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
@@ -164,17 +164,17 @@ const Gallery: React.FC = () => {
                     </div>
                   </div>
                   <div className="p-4">
-                    <div className="text-xs text-gray-500 mb-2">
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2">
+                    <div className="text-xs text-ui-text-secondary mb-2">
+                      <span className="bg-black/5 text-ui-text-primary px-2 py-1 rounded-full mr-2">
                         {item.category}
                       </span>
                       {formatDate(item.created_at)}
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 text-sm mb-3">{item.description}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
+                    <h3 className="font-semibold text-ui-text-primary mb-2">{item.title}</h3>
+                    <p className="text-ui-text-secondary text-sm mb-3">{item.description}</p>
+                    <div className="flex items-center justify-between text-xs text-ui-text-secondary">
                       <span>📸 {item.photographer}</span>
-                      <button className="text-red-600 hover:text-red-700">View Full Size</button>
+                      <button className="text-brand-mid-blue hover:text-brand-dark-blue font-semibold">View Full Size</button>
                     </div>
                   </div>
                 </motion.div>
@@ -183,9 +183,9 @@ const Gallery: React.FC = () => {
 
             {filteredItems.length === 0 && !loading && (
               <div className="text-center py-12">
-                <div className="text-gray-400 text-6xl mb-4">🖼️</div>
-                <h3 className="text-xl font-semibold text-gray-600 mb-2">No Photos Found</h3>
-                <p className="text-gray-500">Try adjusting your search criteria or filters.</p>
+                <div className="text-ui-text-secondary/40 text-6xl mb-4">🖼️</div>
+                <h3 className="text-xl font-semibold text-ui-text-secondary/80 mb-2">No Photos Found</h3>
+                <p className="text-ui-text-secondary/70">Try adjusting your search criteria or filters.</p>
               </div>
             )}
           </>
@@ -204,7 +204,7 @@ const Gallery: React.FC = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              className="bg-white rounded-lg max-w-4xl max-h-full overflow-hidden"
+              className="bg-ui-surface rounded-lg max-w-4xl max-h-full overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
@@ -221,9 +221,9 @@ const Gallery: React.FC = () => {
                 </button>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{selectedImage.title}</h3>
-                <p className="text-gray-600 mb-4">{selectedImage.description}</p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <h3 className="text-xl font-bold text-ui-text-primary mb-2">{selectedImage.title}</h3>
+                <p className="text-ui-text-secondary mb-4">{selectedImage.description}</p>
+                <div className="flex items-center justify-between text-sm text-ui-text-secondary/70">
                   <span>📸 {selectedImage.photographer}</span>
                   <span>{formatDate(selectedImage.created_at)}</span>
                   <span>{selectedImage.views} views</span>

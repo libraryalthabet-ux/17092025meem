@@ -83,34 +83,34 @@ const PosterModal: React.FC<PosterModalProps> = ({ isOpen, onClose, data }) => {
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
-            className="bg-gray-800 rounded-2xl w-full max-w-5xl h-full max-h-[95vh] flex flex-col lg:flex-row overflow-hidden"
+            className="bg-brand-dark-blue rounded-2xl w-full max-w-5xl h-full max-h-[95vh] flex flex-col lg:flex-row overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Poster Preview */}
-            <div className="flex-grow bg-gray-900 flex items-center justify-center p-4 lg:p-8 overflow-auto">
+            <div className="flex-grow bg-brand-dark-blue/50 flex items-center justify-center p-4 lg:p-8 overflow-auto">
               <div ref={posterRef} className="w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] shadow-2xl">
                 <ActivePoster program={data.program} winners={data.winners} />
               </div>
             </div>
 
             {/* Controls */}
-            <div className="w-full lg:w-72 bg-gray-800 border-t lg:border-t-0 lg:border-l border-gray-700 p-6 flex flex-col justify-between">
+            <div className="w-full lg:w-72 bg-brand-dark-blue border-t lg:border-t-0 lg:border-l border-brand-mid-blue/50 p-6 flex flex-col justify-between">
               <div>
-                <h3 className="text-white text-xl font-bold mb-1">Result Poster</h3>
-                <p className="text-gray-400 text-sm mb-6">Download or share this result</p>
+                <h3 className="text-ui-text-light text-xl font-bold mb-1">Result Poster</h3>
+                <p className="text-ui-text-light/70 text-sm mb-6">Download or share this result</p>
 
                 <div className="space-y-4">
                   <button
                     onClick={handleDownload}
                     disabled={isDownloading}
-                    className="w-full bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-yellow-400 transition-colors disabled:opacity-50"
+                    className="w-full bg-brand-coral text-brand-dark-blue font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-colors disabled:opacity-50"
                   >
                     {isDownloading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
                     {isDownloading ? 'Downloading...' : 'Download Poster'}
                   </button>
                   <button
                     onClick={handleShare}
-                    className="w-full bg-gray-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-600 transition-colors"
+                    className="w-full bg-brand-mid-blue text-ui-text-light font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-brand-mid-blue/80 transition-colors"
                   >
                     <Share2 className="w-5 h-5" />
                     Share Result
@@ -119,15 +119,15 @@ const PosterModal: React.FC<PosterModalProps> = ({ isOpen, onClose, data }) => {
               </div>
 
               <div>
-                <p className="text-gray-400 text-sm text-center mb-2">Change Style</p>
+                <p className="text-ui-text-light/70 text-sm text-center mb-2">Change Style</p>
                 <div className="flex items-center justify-between">
-                  <button onClick={prevStyle} className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 text-white"><ArrowLeft size={20} /></button>
-                  <span className="text-white font-mono">{activeStyle + 1} / {posters.length}</span>
-                  <button onClick={nextStyle} className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 text-white"><ArrowRight size={20} /></button>
+                  <button onClick={prevStyle} className="p-3 bg-brand-mid-blue/50 rounded-full hover:bg-brand-mid-blue text-ui-text-light"><ArrowLeft size={20} /></button>
+                  <span className="text-ui-text-light font-mono">{activeStyle + 1} / {posters.length}</span>
+                  <button onClick={nextStyle} className="p-3 bg-brand-mid-blue/50 rounded-full hover:bg-brand-mid-blue text-ui-text-light"><ArrowRight size={20} /></button>
                 </div>
               </div>
             </div>
-            <button onClick={onClose} className="absolute top-4 right-4 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 z-10"><X size={24} /></button>
+            <button onClick={onClose} className="absolute top-4 right-4 text-ui-text-light bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 z-10"><X size={24} /></button>
           </motion.div>
         </motion.div>
       )}
