@@ -9,12 +9,16 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-brand-light-blue rounded-lg flex items-center justify-center">
-                <span className="text-brand-dark-blue font-bold text-lg">M</span>
-              </div>
-              <span className="text-ui-text-light font-bold text-xl">SSF Muhimmath Daawa Sector</span>
-            </div>
+            <Link to="/" className="group flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-light-blue rounded-lg flex items-center justify-center transform group-hover:rotate-[-15deg] transition-transform duration-300">
+                  <span className="text-brand-dark-blue font-bold text-2xl font-serif transform group-hover:rotate-[15deg] transition-transform duration-300">
+                    M
+                  </span>
+                </div>
+                <span className="text-ui-text-light font-bold text-xl font-serif tracking-tight">
+                  SSF Muhimmath
+                </span>
+            </Link>
             <p className="text-ui-text-light/70 mb-4 max-w-md">
               Fostering a generation of compassionate leaders through education, da'wa, and community service.
             </p>

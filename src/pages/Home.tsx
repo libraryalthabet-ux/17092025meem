@@ -104,13 +104,13 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8"
+            className="mb-12"
           >
             <h2 className="text-ui-text-light text-2xl md:text-3xl font-light mb-4 font-fractual">SSF Muhimmath Daawa Sector</h2>
-            <h1 className="text-ui-text-light text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-wider font-cooper">
+            <h1 className="text-ui-text-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-wider font-cooper">
               Meem Fest
             </h1>
-            <p className="text-ui-text-light text-xl md:text-2xl font-fractual">
+            <p className="text-ui-text-light text-lg md:text-xl font-fractual">
               <span className="text-fractual">2025</span> OCTOBER 05,06,07,08 <span className="text-fractual">Muhimmathul Muslimeen Education Centre </span>
             </p>
           </motion.div>
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
       </section>
       
       {/* Gallery Preview */}
-      <section className="relative py-16 bg-transparent overflow-hidden">
+      <section className="relative py-16 bg-transparent overflow-hidden bg-paper-texture bg-repeat">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-ui-text-primary mb-4 font-fractual">Gallery Highlights</h2>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
               {news.map((item, index) => (
                 <motion.div key={item.id} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.15 }}>
                   <div className="bg-ui-surface rounded-lg overflow-hidden border border-black/5 h-full flex flex-col">
-                    <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/134D80/FFFFFF?text=News'} alt={item.title} className="w-full h-40 object-cover" />
+                    <img src={item.image_url || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/134D80/FFFFFF?text=News'} alt={item.title} className="w-full h-40 object-cover" />
                     <div className="p-6 flex-grow flex flex-col">
                       <p className="text-sm text-brand-mid-blue font-semibold mb-2">{item.category}</p>
                       <h3 className="text-lg font-bold text-ui-text-primary mb-3 flex-grow">{item.title}</h3>

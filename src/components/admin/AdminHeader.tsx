@@ -19,20 +19,26 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ onMenuClick }) => {
   return (
     <header className="bg-ui-surface shadow-sm border-b border-black/10">
       <div className="flex items-center justify-between h-16 px-6">
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <button
             onClick={onMenuClick}
-            className="lg:hidden text-ui-text-secondary hover:text-ui-text-primary mr-4"
+            className="lg:hidden text-ui-text-secondary hover:text-ui-text-primary"
+            aria-label="Toggle menu"
           >
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="text-xl font-semibold text-ui-text-primary font-serif">
-            Muhimmath Admin
-          </h1>
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-brand-mid-blue rounded-lg flex items-center justify-center">
+              <span className="text-ui-text-light font-bold text-xl font-serif">M</span>
+            </div>
+            <span className="text-lg font-semibold text-ui-text-primary font-serif hidden sm:block">
+              Admin Panel
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center space-x-4">
-          <button className="text-ui-text-secondary hover:text-ui-text-primary relative">
+          <button className="text-ui-text-secondary hover:text-ui-text-primary relative" aria-label="Notifications">
             <Bell className="w-6 h-6" />
             <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
               3

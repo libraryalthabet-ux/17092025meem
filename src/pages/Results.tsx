@@ -161,7 +161,7 @@ const Results: React.FC = () => {
                 {filteredPrograms.length === 0 ? (
                   <div className="text-center py-12"><div className="text-ui-text-secondary/40 text-6xl mb-4">🔍</div><h3 className="text-xl font-semibold text-ui-text-secondary/80 mb-2">No Programs Found</h3><p className="text-ui-text-secondary/70">Try adjusting your search criteria.</p></div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-12">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-4 gap-y-10">
                     {filteredPrograms.map((program, index) => {
                       const color = programCardColors[index % programCardColors.length];
                       const Icon = color.icon;
@@ -171,20 +171,20 @@ const Results: React.FC = () => {
                           key={`${program.event}-${program.category}`}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: (index % 20) * 0.05 }}
+                          transition={{ duration: 0.5, delay: (index % 24) * 0.05 }}
                           className="h-full"
                           onClick={() => handleProgramClick(program)}
                         >
-                          <div className="relative bg-ui-surface rounded-2xl shadow-lg pt-12 pb-4 px-2 text-center h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col">
-                            <div className={`absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-14 ${color.topBg} rounded-full shadow-md`}>
-                              <div className={`absolute -bottom-5 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-ui-surface ${color.circleBg}`}>
+                          <div className="relative bg-ui-surface rounded-2xl shadow-lg pt-8 pb-4 px-2 text-center h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col">
+                            <div className={`absolute -top-5 left-1/2 -translate-x-1/2 w-28 h-12 ${color.topBg} rounded-full shadow-md`}>
+                              <div className={`absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-ui-surface ${color.circleBg}`}>
                                 {String(index + 1).padStart(2, '0')}
                               </div>
                             </div>
                             
-                            <div className="flex-grow flex flex-col justify-center items-center">
-                                <Icon className={`w-8 h-8 mx-auto mb-2 ${color.textColor}`} />
-                                <h3 className={`font-bold text-base text-ui-text-primary uppercase`}>{program.event}</h3>
+                            <div className="flex-grow flex flex-col justify-center items-center pt-2">
+                                <Icon className={`w-6 h-6 mx-auto mb-2 ${color.textColor}`} />
+                                <h3 className={`font-bold text-sm text-ui-text-primary uppercase`}>{program.event}</h3>
                                 <p className="text-xs text-ui-text-secondary mt-1">{program.category}</p>
                             </div>
                           </div>

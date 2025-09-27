@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'paper-texture': "url('https://img-wrapper.vercel.app/image?url=https://www.transparenttextures.com/patterns/paper-fibers.png')",
+      },
       colors: {
         'brand': {
           'dark-blue': '#082026',
